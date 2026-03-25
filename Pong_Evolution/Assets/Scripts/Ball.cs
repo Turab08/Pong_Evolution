@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour
 {
-    float ballSpeed;
+    public float ballSpeed;
     Vector2 direction;
     Rigidbody2D rb;
 
@@ -22,7 +22,7 @@ public class Ball : MonoBehaviour
     void StartGame()
     {
         direction = Random.insideUnitCircle.normalized; 
-        rb.velocity = direction * ballSpeed;
+        rb.linearVelocity = direction * ballSpeed;
 
         StateManager.Instance.currentState = StateManager.GameStates.Playing;
     }
@@ -42,6 +42,6 @@ public class Ball : MonoBehaviour
         }
 
         direction = Vector2.Reflect(direction, collision.contacts[0].normal);
-        rb.velocity = direction * ballSpeed;
+        rb.linearVelocity = direction * ballSpeed;
     }
 }

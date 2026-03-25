@@ -1,9 +1,8 @@
-using UnityEditor.Callbacks;
 using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
-    int paddleSpeed;
+    public int paddleSpeed;
     public Rigidbody2D leftPaddle;
     public Rigidbody2D rightPaddle;
 
@@ -36,7 +35,7 @@ public class Paddle : MonoBehaviour
 
     void FixedUpdate()
     {
-        leftPaddle.velocity = new Vector2(0, leftInput * paddleSpeed);
-        rightPaddle.velocity = new Vector2(0, rightInput * paddleSpeed);
+        leftPaddle.linearVelocity = new Vector2(0, leftInput * paddleSpeed);
+        rightPaddle.linearVelocity = new Vector2(0, rightInput * paddleSpeed);
     }
 }
